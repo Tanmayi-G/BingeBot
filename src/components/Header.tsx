@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
         dispatch(
@@ -38,19 +38,20 @@ const Header = () => {
         navigate("/");
       }
     });
+
+    return () => unsubscribe();
   }, []);
 
   return (
-    <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-black opacity-90 h-50 z-0" />
-      <img src={logo} alt="Logo" className="w-40 relative z-10" />
+    <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-center px-2 ">
+      <img src={logo} alt="Logo" className="w-40" />
 
       {user && (
-        <div className="absolute top-10 right-10 flex items-center space-x-4 z-10">
+        <div className="flex items-center space-x-4">
           <img
             src={user?.photoURL ?? ""}
             alt="User Icon"
-            className="w-12 h-12 rounded-lg border-1 border-white"
+            className="w-12 h-12 rounded-lg border border-white"
           />
           <button
             onClick={handleSignOut}

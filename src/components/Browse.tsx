@@ -1,14 +1,16 @@
 import Header from "./Header";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
-  return (
-    <div className="relative">
-      <Header />
+  useNowPlayingMovies();
 
-      {/* Page content here */}
-      <div className="pt-32 text-center text-3xl font-bold">
-        Welcome to Browse!
-      </div>
+  return (
+    <div className="overflow-x-hidden">
+      <Header />
+      <MainContainer />
+      <SecondaryContainer />
     </div>
   );
 };
