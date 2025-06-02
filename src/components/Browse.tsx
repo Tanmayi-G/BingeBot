@@ -1,17 +1,6 @@
 import Header from "./Header";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import type { RootState } from "../utils/appStore";
 
 const Browse = () => {
-  const navigate = useNavigate();
-  const user = useSelector((store: RootState) => store.user);
-
-  if (!user) {
-    navigate("/");
-    return null;
-  }
-
   return (
     <div className="relative">
       <Header />
