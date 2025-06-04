@@ -43,13 +43,13 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-center px-2 ">
+    <div className="absolute top-0 left-0 w-full z-20 bg-gradient-to-b  from-black to-transparent flex justify-between items-center px-2 ">
       <img src={logo} alt="Logo" className="w-40" />
 
       {user && (
         <div className="flex items-center space-x-4">
           <img
-            src={user?.photoURL ?? ""}
+            src={user?.photoURL ?? null}
             alt="User Icon"
             className="w-12 h-12 rounded-lg border border-white"
           />

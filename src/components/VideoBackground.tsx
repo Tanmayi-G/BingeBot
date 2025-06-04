@@ -14,14 +14,16 @@ const VideoBackground = ({ movieId }: TVideoProps) => {
   useMovieTrailer({ movieId });
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black -z-10 overflow-hidden">
+    <div className=" w-screen ">
       <iframe
-        className="w-full h-full"
-        src={`https://www.youtube.com/embed/${trailerVideo?.key}?autoplay=1&mute=1&controls=0&loop=1&playlist=${trailerVideo?.key}`}
+        className="w-screen aspect-video "
+        src={
+          "https://www.youtube.com/embed/" +
+          trailerVideo?.key +
+          "?&autoplay=1&mute=1&controls=0&showinfo=0&modestbranding=1&rel=0&loop=1"
+        }
         title="YouTube video player"
-        allow="autoplay; fullscreen"
-        allowFullScreen
-        referrerPolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       ></iframe>
     </div>
   );
