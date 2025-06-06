@@ -1,6 +1,8 @@
 import { IMG_CDN_URL } from "../utils/constants";
 
 const MovieCard = ({ movie }: any) => {
+  if (!movie?.poster_path) return null;
+
   const posterURL = IMG_CDN_URL + movie?.poster_path;
 
   return (

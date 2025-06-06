@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../utils/appStore";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { clearGptResults, toggleGptSearchView } from "../utils/gptSlice";
 import { SUPPORTED_LANGUAGES } from "../utils/constants";
 import { changeLanguage } from "../utils/configSlice";
 
@@ -28,6 +28,7 @@ const Header = () => {
 
   const toggleGptSearch = () => {
     dispatch(toggleGptSearchView());
+    dispatch(clearGptResults());
   };
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
